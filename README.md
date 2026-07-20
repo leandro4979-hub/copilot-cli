@@ -57,10 +57,10 @@ when run as root or `$HOME/.local` when run as a non-root user.
 
 Set `VERSION` to install a specific version. Defaults to the latest version.
 
-For example, to install version `v0.0.369` to a custom directory:
+For example, to install version `v1.0.71` to a custom directory:
 
 ```bash
-curl -fsSL https://gh.io/copilot-install | VERSION="v0.0.369" PREFIX="$HOME/custom" bash
+curl -fsSL https://gh.io/copilot-install | VERSION="v1.0.71" PREFIX="$HOME/custom" bash
 ```
 
 Install with [Homebrew](https://formulae.brew.sh/cask/copilot-cli) (macOS and Linux):
@@ -119,7 +119,7 @@ You can also authenticate using a fine-grained PAT with the "Copilot Requests" p
 
 Launch `copilot` in a folder that contains code you want to work with.
 
-By default, `copilot` utilizes Claude Sonnet 4.5. Run the `/model` slash command to choose from other available models, including Claude Sonnet 4 and GPT-5.
+By default, `copilot` utilizes Claude Sonnet 4.5. Run the `/model` slash command to choose from other available models, including Claude Sonnet 4 and GPT-5.6.
 
 ### Experimental Mode
 

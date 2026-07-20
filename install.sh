@@ -54,7 +54,7 @@ elif [ "${VERSION}" = "prerelease" ]; then
     echo "Error: git is required to install prerelease versions" >&2
     exit 1
   fi
-  VERSION="$(git ls-remote --tags --sort "version:refname" "$GIT_REMOTE" | tail -1 | awk -F/ '{print $NF}')"
+  VERSION="$(git ls-remote --tags --sort "version:refname" "$GIT_REMOTE" | grep -v '\^{}' | tail -1 | awk -F/ '{print $NF}')"
   if [ -z "$VERSION" ]; then
     echo "Error: Could not determine prerelease version" >&2
     exit 1
@@ -82,7 +82,7 @@ if command -v curl >/dev/null 2>&1; then
 elif command -v wget >/dev/null 2>&1; then
   wget -qO "$TMP_TARBALL" "${WGET_AUTH[@]}" "$DOWNLOAD_URL"
 else
-  echo "Error: Neither curl nor wget found. Please install one of them."
+  echo "Error: Neither curl nor wget found. Please install one of them." >&2
   exit 1
 fi
 
